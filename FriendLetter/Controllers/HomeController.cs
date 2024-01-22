@@ -12,11 +12,15 @@ namespace FriendLetter.Controllers
     public string Goodbye() { return "Goodbye Friend!"; }
 
     [Route("/postcard")]
-    public ActionResult PostCard(string recipient, string sender)
+    public ActionResult PostCard(string recipient, string sender, string currentLocation, string currentWeather, string otherLocation, string souvenir)
     {
       LetterVariable myLetterVariable = new LetterVariable();
       myLetterVariable.Recipient = recipient;
       myLetterVariable.Sender = sender;
+      myLetterVariable.CurrentLocation = currentLocation;
+      myLetterVariable.CurrentWeather = currentWeather;
+      myLetterVariable.OtherLocation = otherLocation;
+      myLetterVariable.Souvenir = souvenir;
       return View(myLetterVariable);
     }
 
